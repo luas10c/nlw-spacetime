@@ -1,0 +1,30 @@
+{
+  "name": "@nlw-spacetime/backend",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "dotenv -v NODE_ENV=development -e .env.development -- tsx watch src/server.ts",
+    "lint": "eslint \"src\" --ext .ts",
+    "migrate": "dotenv -v NODE_ENV=development -e .env.development -- prisma migrate dev"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.14.0",
+    "fastify": "^4.17.0",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.1.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "dotenv-cli": "^7.2.1",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "prisma": "^4.14.0",
+    "tsx": "^3.12.7"
+  },
+  "prisma": {
+    "schema": "src/database/schema.prisma"
+  },
+  "license": "UNLICENSED"
+}
