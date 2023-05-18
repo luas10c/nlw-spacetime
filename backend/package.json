@@ -25,7 +25,8 @@
     "tsx": "^3.12.7"
   },
   "prisma": {
-    "schema": "src/database/schema.prisma"
+    "schema": "src/database/schema.prisma",
+    "seed": "src/database/seed.ts"
   },
   "license": "UNLICENSED"
 }
