@@ -5,12 +5,17 @@
     "dev": "dotenv -v NODE_ENV=development -e .env.development -- tsx watch src/server.ts",
     "lint": "eslint \"src\" --ext .ts",
     "migrate": "dotenv -v NODE_ENV=development -e .env.development -- prisma migrate dev",
+    "seed": "dotenv -v NODE_ENV=development -e .env.development -- prisma db seed",
     "studio": "dotenv -v NODE_ENV=development -e .env.development -- prisma studio"
   },
   "dependencies": {
+    "@fastify/cors": "^8.2.1",
+    "@fastify/jwt": "^6.7.1",
     "@prisma/client": "^4.14.0",
+    "axios": "^1.4.0",
     "fastify": "^4.17.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/node": "^20.1.5",
@@ -26,7 +31,7 @@
   },
   "prisma": {
     "schema": "src/database/schema.prisma",
-    "seed": "src/database/seed.ts"
+    "seed": "tsx src/database/seeds.ts"
   },
   "license": "UNLICENSED"
 }

@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast'
 import { Roboto_Flex, Bai_Jamjuree } from 'next/font/google'
 
 import './globals.css'
@@ -28,7 +29,10 @@ const AppLayout = (props: Props) => {
 
   return (
     <html lang="en" className={`${roboto.variable} ${baiJamjuree.variable}`}>
-      <body>{children}</body>
+      <body cz-shortcut-listen="true">
+        <Toaster />
+        {children}
+      </body>
     </html>
   )
 }

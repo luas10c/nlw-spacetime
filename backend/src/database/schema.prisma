@@ -9,8 +9,28 @@ datasource db {
 }
 
 model User {
-  id   String @id @default(uuid())
-  name String
+  id        String    @id @default(uuid())
+  githubId  String?   @unique
+  name      String?
+  login     String    @unique
+  avatarUrl String?
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  memories Memory[]
 
   @@map("tb_users")
+}
+
+model Memory {
+  id        String    @id @default(uuid())
+  content   String
+  coverUrl  String    @map("cover_url")
+  isPublic  Boolean   @default(false)
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  @@map("tb_memories")
 }
